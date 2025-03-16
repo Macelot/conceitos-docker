@@ -74,3 +74,136 @@ EXPOSE 5000
 
 # Comando para rodar a aplicação
 CMD ["python", "app.py"]
+```
+
+-------
+
+## Componentes Essenciais do Docker
+
+### Imagens Docker
+
+São modelos prontos para criar containers. Pense nelas como "fotografias" do ambiente necessário para rodar um software.
+
+### Containers Docker
+
+São instâncias de imagens que executam um aplicativo isoladamente.
+
+### Dockerfile
+
+Um arquivo que define como a imagem Docker será construída.
+
+### Docker Compose
+
+Permite orquestrar múltiplos containers, útil para aplicações que precisam de vários serviços (exemplo: um app web, um banco de dados e um serviço de cache).
+
+
+## Exemplo Prático: Criando um Site com Flask e Docker
+
+Agora, vamos surpreender seus alunos mostrando como criar uma aplicação web em Flask e rodá-la dentro de um container Docker.
+
+** 1. Criando o Projeto
+
+Crie uma pasta chamada meu_projeto_docker e dentro dela, crie os seguintes arquivos:
+
+Dockerfile
+
+app.py
+
+requirements.txt
+
+docker-compose.yml
+
+
+** 2. Criando o Arquivo de Dependências
+
+O arquivo requirements.txt deve conter:
+
+flask
+
+Isso indica que precisamos instalar o Flask dentro do nosso container.
+
+** 3. Criando a Aplicação Flask
+
+O arquivo app.py conterá um pequeno servidor web:
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "🚀 Olá, mundo! Seu site Flask está rodando no Docker! 🔥"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+Essa aplicação Flask cria uma página simples que exibe uma mensagem.
+
+** 4. Criando o Dockerfile
+
+O Dockerfile define como nosso ambiente será configurado:
+
+# Usando uma imagem base do Python
+```python
+FROM python:3.9-slim
+```
+
+# Definindo o diretório de trabalho dentro do container
+```python
+WORKDIR /app
+```
+# Copiando os arquivos do projeto
+```python
+COPY requirements.txt .
+```
+# Instalando as dependências
+```python
+RUN pip install -r requirements.txt
+```
+# Copiando o código da aplicação
+```python
+COPY . .
+```
+# Expondo a porta 5000
+```python
+EXPOSE 5000
+```
+# Comando para iniciar a aplicação
+CMD ["python", "app.py"]
+```
+** 5. Criando o Docker Compose (Opcional, mas útil!)
+
+O docker-compose.yml permite rodar nosso app de maneira ainda mais fácil:
+```python
+version: '3'
+services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"
+```
+
+** 6. Executando o Projeto
+
+Agora, com tudo pronto, abra o terminal e execute os seguintes comandos:
+
+Criar a imagem Docker
+```python
+docker build -t meu-flask-app .
+```
+
+Rodar o container
+```python
+docker run -p 5000:5000 meu-flask-app
+```
+
+Agora, abra o navegador e acesse:
+🌍 http://localhost:5000
+
+Você verá a mensagem:
+🚀 "Olá, mundo! Seu site Flask está rodando no Docker!" 🔥
+
+Conclusão
+
+Esse exemplo mostra como podemos empacotar um site Flask dentro de um container e executá-lo de forma portável e escalável. Agora imagine... Se fosse uma API, um banco de dados, ou até mesmo um ambiente de produção completo? O Docker torna tudo isso simples e poderoso!
