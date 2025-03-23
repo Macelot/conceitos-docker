@@ -195,7 +195,7 @@ services:
 
 Agora, com tudo pronto, abra o terminal e execute os seguintes comandos:
 
-Criar a imagem Docker
+Criar a imagem Docker (este texto meu-flask-app é apenas para exibição no Docker Desktop e posteriormente ser chamado pelo comando seguinte)
 ```python
 docker build -t meu-flask-app .
 ```
