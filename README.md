@@ -170,8 +170,10 @@ COPY . .
 EXPOSE 5000
 ```
 # Comando para iniciar a aplicação
+```
 CMD ["python", "app.py"]
 ```
+
 ** 5. Criando o Docker Compose (Opcional, mas útil!)
 
 O docker-compose.yml permite rodar nosso app de maneira ainda mais fácil:
