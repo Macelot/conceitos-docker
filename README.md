@@ -178,12 +178,17 @@ CMD ["python", "app.py"]
 
 O docker-compose.yml permite rodar nosso app de maneira ainda mais fácil:
 ```python
-version: '3'
+version: '3.8'
+
 services:
-  flask_app:
+  app:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
 ```
 
 ** 6. Executando o Projeto
