@@ -1,6 +1,6 @@
 # conceitos-docker
 
-# Aula de Docker: Conceitos Básicos e Exemplo Prático
+# Conceitos Básicos e Exemplo Prático
 
 ## 1. O que é Docker?
 
@@ -42,6 +42,8 @@ Aqui estão alguns comandos essenciais do Docker:
 - **`docker stop <id-do-container>`**: Para a execução de um container.
 - **`docker rm <id-do-container>`**: Remove um container parado.
 - **`docker rmi <nome-da-imagem>`**: Remove uma imagem do sistema.
+
+Exemplos de docker pull [docker pull] (https://github.com/Macelot/manual-docker)
 
 ---
 
