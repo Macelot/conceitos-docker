@@ -117,9 +117,9 @@ docker-compose.yml
 ** 2. Criando o Arquivo de Dependências
 
 O arquivo requirements.txt deve conter:
-
+```
 flask
-
+```
 Isso indica que precisamos instalar o Flask dentro do nosso container.
 
 ** 3. Criando a Aplicação Flask
