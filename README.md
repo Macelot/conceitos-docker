@@ -165,14 +165,24 @@ Criar a imagem Docker (este texto meu-flask-app é apenas para exibição no Doc
 ```python
 docker build -t meu-flask-app .
 ```
+Abrir o aplicativo Docker instalado em seu computador
 
 Rodar o container
 ```python
 docker run -p 5000:5000 meu-flask-app
 ```
 
+se tiver problema com portas em uso, podes trocar a porta (em 1 local):
+aqui
+```python
+docker run -p 5001:5000 meu-flask-app
+```
+
+
 Agora, abra o navegador e acesse:
-🌍 http://localhost:5000
+🌍 http://localhost:5000 
+ou
+🌍 http://localhost:5001
 
 Você verá a mensagem:
 🚀 "Olá, mundo! Seu site Flask está rodando no Docker!" 🔥
